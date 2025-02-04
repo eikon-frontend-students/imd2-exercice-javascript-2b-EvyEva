@@ -3,14 +3,15 @@
 var carts = document.querySelectorAll(".product-addtocart");
 var confirmation = document.querySelector(".confirmation");
 
-console.log(carts);
-console.log(confirmation);
-
 // Boucle????
 
-carts.forEach(function (carts) {
-  console.log(carts.innerText);
-  confirmation.classList("confirmation");
-});
+function showConfirmation() {
+  confirmation.classList.add("is-active");
+  setTimeout(() => {
+    confirmation.classList.remove("is-active");
+  }, 2000);
+}
 
-carts.addEventListener("click", forEach);
+carts.forEach(function (cart) {
+  cart.addEventListener("click", showConfirmation);
+});
